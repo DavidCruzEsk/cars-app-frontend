@@ -12,7 +12,6 @@ import FourOFour from './pages/FourOFour'
 
 function App() {
 
-
   return (
     <div>
       <Routes>

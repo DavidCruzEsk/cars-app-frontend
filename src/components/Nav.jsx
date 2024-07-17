@@ -1,10 +1,14 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 
 const Nav = () => {
     return (
-        <div>
-            Nav Section
-        </div>
+        <>
+            <nav>
+                <h1>Cars App</h1>
+            </nav>
+            <Outlet />
+        </>
     );
 };
 
