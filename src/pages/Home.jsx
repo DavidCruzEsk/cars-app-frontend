@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+
 const Home = () => {
     const [cars, setCars] = useState([]);
     const API = import.meta.env.VITE_BASE_URL;
@@ -22,13 +23,14 @@ const Home = () => {
             </header>
             <div className='home-container'>
                 {cars.map((car) => {
-                    const { id, make, model, img_url } = car;
+                    const { id, make, year, model, imgUrl } = car;
                     return (
-                        <div className='car-portrait' key={id}>
-                            <img src={img_url} alt='car-photo' width='200px' height='125px'/>
+                        <div onClick={() => navigate(`/${id}`)} className='car-portrait' key={id}>
+                            <img src={imgUrl} alt='car-photo' width='200px' height='125px'/>
                             <div className='car-header-div'>
                                 <h3 className='make-header'>{make}</h3>
                                 <h2 className='model-header'><i>{model}</i></h2>
+                                <p className='model-year'>&#40;{year}&#41;</p>
                             </div>
                         </div>
                     );
