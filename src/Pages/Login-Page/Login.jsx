@@ -36,6 +36,10 @@ const LogIn = () => {
 
   return (
     <form onSubmit={handleSubmit} className="login-form">
+      <div className='login-form__right-panel'>
+          <img src='' alt=''></img>
+      </div>
+
       <div className="login-form__section">
         <h2>Log In</h2>
       </div>
@@ -82,6 +86,10 @@ const LogIn = () => {
         </button>
       </div>
       <div className="login-form__section error">{error && <p>{error}</p>}</div>
+
+      <div className='login-form__left-panel'>
+          <img src='' alt=''></img>
+      </div>
     </form>
   );
 };

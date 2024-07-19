@@ -4,11 +4,17 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: repeat(10, auto);
   padding: 2rem;
+  &__left-panel {
+    grid-column: 1 / span 1;
+  }
   &__section{
     grid-column: 2/ span 1;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  &__right-panel {
+    grid-column: 3 / span 1;
   }
 }
 
