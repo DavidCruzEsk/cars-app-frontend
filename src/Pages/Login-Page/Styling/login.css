@@ -3,10 +3,38 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: repeat(10, auto);
-  padding: 2rem;
+  padding: 0;
 }
 .login-form__left-panel {
   grid-column: 1/span 1;
+  background-image: url("public/patrick-langwallner-afnQQfeMjUs-unsplash flipped.jpg");
+  grid-row: 1/span 10;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: flicker-left-panel 5s ease-in-out infinite;
+}
+@keyframes flicker-left-panel {
+  0% {
+    background-image: url("public/patrick-langwallner-afnQQfeMjUs-unsplash flipped.jpg");
+    filter: none;
+  }
+  70% {
+    background-image: url("public/patrick-langwallner-afnQQfeMjUs-unsplash flipped.jpg");
+    filter: brightness(1.5);
+  }
+  80% {
+    background-image: url("public/patrick-langwallner-afnQQfeMjUs-unsplash flipped.jpg");
+    filter: brightness(2);
+  }
+  90% {
+    background-image: url("public/patrick-langwallner-afnQQfeMjUs-unsplash flipped.jpg");
+    filter: none;
+  }
+  100% {
+    background-image: url("public/patrick-langwallner-afnQQfeMjUs-unsplash flipped.jpg");
+    filter: none;
+  }
 }
 .login-form__section {
   grid-column: 2/span 1;
@@ -15,7 +43,35 @@
   align-items: center;
 }
 .login-form__right-panel {
+  background-image: url("public/patrick-langwallner-afnQQfeMjUs-unsplash.jpg");
   grid-column: 3/span 1;
+  grid-row: 1/span 10;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: flicker-right-panel 5s ease-in-out infinite;
+}
+@keyframes flicker-right-panel {
+  0% {
+    background-image: url("public/patrick-langwallner-afnQQfeMjUs-unsplash.jpg");
+    filter: none;
+  }
+  70% {
+    background-image: url("public/patrick-langwallner-afnQQfeMjUs-unsplash.jpg");
+    filter: brightness(1.5);
+  }
+  80% {
+    background-image: url("public/patrick-langwallner-afnQQfeMjUs-unsplash.jpg");
+    filter: brightness(2);
+  }
+  90% {
+    background-image: url("public/patrick-langwallner-afnQQfeMjUs-unsplash.jpg");
+    filter: none;
+  }
+  100% {
+    background-image: url("public/patrick-langwallner-afnQQfeMjUs-unsplash.jpg");
+    filter: none;
+  }
 }
 
 .form-input {
