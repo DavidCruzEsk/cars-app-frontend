@@ -5,11 +5,17 @@
   grid-template-rows: repeat(10, auto);
   padding: 2rem;
 }
+.login-form__left-panel {
+  grid-column: 1/span 1;
+}
 .login-form__section {
   grid-column: 2/span 1;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.login-form__right-panel {
+  grid-column: 3/span 1;
 }
 
 .form-input {
