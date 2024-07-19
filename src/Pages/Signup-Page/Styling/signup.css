@@ -1,0 +1,20 @@
+.signup-form {
+  grid-area: "content";
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(10, auto);
+  padding: 1rem;
+}
+.signup-form__section {
+  grid-column: 2/span 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.validations {
+  display: flex;
+  flex-direction: column;
+}
+
+/*# sourceMappingURL=signup.css.map */

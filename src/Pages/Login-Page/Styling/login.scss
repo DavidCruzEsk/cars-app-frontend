@@ -3,7 +3,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: repeat(10, auto);
-  padding: 2rem;
+  padding: 1rem;
   &__left-panel {
     grid-column: 1 / span 1;
   }
