@@ -32,6 +32,7 @@ const Welcome = () => {
               onClick={() => {
                 setIsComponentVisible(prev => !prev);
                 setUser(false);
+                navigate('/');
               }}
             >
               Sign Out

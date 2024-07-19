@@ -17,7 +17,6 @@ const Nav = () => {
   useEffect(() => {
     if (!user) {
       setFavorites({});
-      navigate('/');
     } else {
       axios
         .get(`${BASE_URL}/favorites/${user.id}`)

@@ -1,0 +1,53 @@
+.login-form{
+  grid-area: 'content';
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(10, auto);
+  padding: 2rem;
+  &__section{
+    grid-column: 2/ span 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.form-input{
+  display: flex;
+  align-items: center;
+  border: 0.08rem solid black;
+  border-radius: 1.3rem;
+  padding: 0.2rem 0.8rem;
+  margin-left: 0.5rem;
+  input{
+    border: none;
+    outline: none;
+  }
+}
+
+.main-btns{
+  button{
+    border: none;
+    outline: none;
+    padding: 0.5rem 1rem;
+    border-radius: 1.3rem;
+    margin: 0 3rem;
+    cursor: pointer;
+  }
+}
+
+.switch-btn{
+  button{
+    border: none;
+    outline: none;
+    padding: 0.5rem 1rem;
+    border-radius: 1.3rem;
+    cursor: pointer;
+  }
+}
+
+.error{
+  p{
+    color: red;
+  }
+}

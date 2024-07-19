@@ -14,7 +14,6 @@ import DeleteUser from './Pages/DeleteUser-Page/DeleteUser';
 
 function App() {
   return (
-    <div>
       <Routes>
         <Route path="/" element={<Nav />}>
           <Route index element={<Home />} />
@@ -29,7 +28,6 @@ function App() {
         </Route>
         <Route path={'*'} element={<FourOFour />} />
       </Routes>
-    </div>
   );
 }
 
