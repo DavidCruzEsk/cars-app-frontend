@@ -37,7 +37,6 @@ const LogIn = () => {
   return (
     <form onSubmit={handleSubmit} className="login-form">
       <div className='login-form__right-panel'>
-          <img src='/dhiva-krishna-ToMqxOtnFGc-unsplash.jpg' alt='left-panel-car-vertical-image'></img>
       </div>
 
       <div className="login-form__section">
@@ -88,7 +87,6 @@ const LogIn = () => {
       <div className="login-form__section error">{error && <p>{error}</p>}</div>
 
       <div className='login-form__left-panel'>
-          <img src='/mattia-righetti-CuC-b8f3RYc-unsplash.jpg' alt='right-panel-car-vertical-image'></img>
       </div>
     </form>
   );
