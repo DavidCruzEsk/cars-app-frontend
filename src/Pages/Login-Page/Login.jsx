@@ -6,8 +6,6 @@ import {LuEye} from 'react-icons/lu';
 import {LuEyeOff} from 'react-icons/lu';
 import './Styling/login.css';
 
-
-
 const LogIn = () => {
   const BASE_URL = import.meta.env.VITE_BASE_URL_USERS;
   const navigate = useNavigate();

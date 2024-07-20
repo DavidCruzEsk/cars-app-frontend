@@ -3,34 +3,34 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: repeat(10, auto);
-  // padding: 2rem;
   padding: 0;
   &__left-panel {
     @keyframes flicker-left-panel {
       0% {
-        background-image: url('public/patrick-langwallner-afnQQfeMjUs-unsplash flipped.jpg');
+        background-image: url('/patrick-langwallner-afnQQfeMjUs-unsplash flipped.jpg');
         filter: none;
       }
       70% {
-        background-image: url('public/patrick-langwallner-afnQQfeMjUs-unsplash flipped.jpg');
+        background-image: url('/patrick-langwallner-afnQQfeMjUs-unsplash flipped.jpg');
         filter: brightness(1.5);
       }
       80% {
-        background-image: url('public/patrick-langwallner-afnQQfeMjUs-unsplash flipped.jpg');
+        background-image: url('/patrick-langwallner-afnQQfeMjUs-unsplash flipped.jpg');
         filter: brightness(2);
       }
       90% {
-        background-image: url('public/patrick-langwallner-afnQQfeMjUs-unsplash flipped.jpg');
+        background-image: url('/patrick-langwallner-afnQQfeMjUs-unsplash flipped.jpg');
         filter: none;
       }
+
       100% {
-        background-image: url('public/patrick-langwallner-afnQQfeMjUs-unsplash flipped.jpg');
+        background-image: url('/patrick-langwallner-afnQQfeMjUs-unsplash flipped.jpg');
         filter: none;
       }
     }
 
     grid-column: 1 / span 1;
-    background-image: url('public/patrick-langwallner-afnQQfeMjUs-unsplash flipped.jpg');
+    background-image: url('/patrick-langwallner-afnQQfeMjUs-unsplash flipped.jpg');
     grid-row: 1 / span 10;
     background-size: cover;
     background-position: center;
@@ -46,28 +46,28 @@
   &__right-panel {
     @keyframes flicker-right-panel {
       0% {
-        background-image: url('public/patrick-langwallner-afnQQfeMjUs-unsplash.jpg');
+        background-image: url('/patrick-langwallner-afnQQfeMjUs-unsplash.jpg');
         filter: none;
       }
       70% {
-        background-image: url('public/patrick-langwallner-afnQQfeMjUs-unsplash.jpg');
+        background-image: url('/patrick-langwallner-afnQQfeMjUs-unsplash.jpg');
         filter: brightness(1.5);
       }
       80% {
-        background-image: url('public/patrick-langwallner-afnQQfeMjUs-unsplash.jpg');
+        background-image: url('/patrick-langwallner-afnQQfeMjUs-unsplash.jpg');
         filter: brightness(2);
       }
       90% {
-        background-image: url('public/patrick-langwallner-afnQQfeMjUs-unsplash.jpg');
+        background-image: url('/patrick-langwallner-afnQQfeMjUs-unsplash.jpg');
         filter: none;
       }
       100% {
-        background-image: url('public/patrick-langwallner-afnQQfeMjUs-unsplash.jpg');
+        background-image: url('/patrick-langwallner-afnQQfeMjUs-unsplash.jpg');
         filter: none;
       }
     }
 
-    background-image: url('public/patrick-langwallner-afnQQfeMjUs-unsplash.jpg');
+    background-image: url('/patrick-langwallner-afnQQfeMjUs-unsplash.jpg');
     grid-column: 3 / span 1;
     grid-row: 1 / span 10;
     background-size: cover;
