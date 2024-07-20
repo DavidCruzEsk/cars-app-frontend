@@ -38,53 +38,62 @@ const LogIn = () => {
     <form onSubmit={handleSubmit} className="login-form">
       <div className='login-form__right-panel'>
       </div>
-
-      <div className="login-form__section">
-        <h2>Log In</h2>
-      </div>
-      <div className="login-form__section">
-        <label htmlFor="username">Username:</label>
-        <div className="form-input">
-        <input
-          type="text"
-          id="username"
-          value={credentials.username}
-          onChange={e =>
-            setCredentials({...credentials, username: e.target.value})
-          }
-        />
+      <div className='login-form__middle-panel'>
+      <video autoPlay muted loop id="myVideo">
+    <source src="/videos/9518354-uhd_2160_4096_25fps.mp4" type="video/mp4" />
+    Your browser does not support HTML5 video.
+  </video>
+        <div className="login-form__section">
+          <h2 className='log-in-header'>Log In</h2>
         </div>
-      </div>
-      <div className="login-form__section">
-        <label htmlFor="password">Password:</label>
-        <div className="form-input">
-          <input
-            type={passwordVisibility ? 'text' : 'password'}
-            id="password"
-            value={credentials.password}
-            onChange={e =>
-              setCredentials({...credentials, password: e.target.value})
-            }
-          />
-          {passwordVisibility ? (
-            <LuEyeOff onClick={() => setPasswordVisibility(prev => !prev)} />
-          ) : (
-            <LuEye onClick={() => setPasswordVisibility(prev => !prev)} />
-          )}
+        <div className="login-form__section">
+          {/* <label htmlFor="username">Username:</label> */}
+          <div className="form-input">
+            <input
+              type="text"
+              id="username"
+              placeholder='username'
+              value={credentials.username}
+              onChange={e =>
+                setCredentials({...credentials, username: e.target.value})
+              }
+            />
+          </div>
         </div>
+        <div className="login-form__section">
+          {/* <label htmlFor="password">Password:</label> */}
+          <div className="form-input">
+            <input
+              className='form-input__password-input'
+              type={passwordVisibility ? 'text' : 'password'}
+              id="password"
+              placeholder='password'
+              value={credentials.password}
+              onChange={e =>
+                setCredentials({...credentials, password: e.target.value})
+              }
+            />
+            {passwordVisibility ? (
+              <LuEyeOff onClick={() => setPasswordVisibility(prev => !prev)} />
+            ) : (
+              <LuEye onClick={() => setPasswordVisibility(prev => !prev)} />
+            )}
+          </div>
+        </div>
+        <div className="login-form__section main-btns">
+          <button type="button" onClick={() => navigate('/')}>
+            Cancel
+          </button>
+          <button type="submit">Log In</button>
+        </div>
+        <div className="login-form__section switch-btn">
+          <button type="button" onClick={() => navigate('/signup')}>
+            Sign Up
+          </button>
+        </div>
+        <div className="login-form__section error">{error && <p>{error}</p>}</div>
       </div>
-      <div className="login-form__section main-btns">
-        <button type="button" onClick={() => navigate('/')}>
-          Cancel
-        </button>
-        <button type="submit">Log In</button>
-      </div>
-      <div className="login-form__section switch-btn">
-        <button type="button" onClick={() => navigate('/signup')}>
-          Sign Up
-        </button>
-      </div>
-      <div className="login-form__section error">{error && <p>{error}</p>}</div>
+      
 
       <div className='login-form__left-panel'>
       </div>

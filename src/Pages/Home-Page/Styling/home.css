@@ -22,21 +22,18 @@
 }
 
 .car-block {
-  background-color: white;
   border-radius: 10px;
   text-align: center;
   padding: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   position: relative;
-  background-image: url("/metal-background-hq-desktop-wallpaper-16392.jpg");
-  opacity: 0.8;
   transition: all 0.6s ease;
   cursor: pointer;
 }
 .car-block__img {
   border-radius: 10px;
   margin: 0;
+  opacity: 0.5;
 }
 .car-block__details {
   display: flex;
@@ -73,7 +70,6 @@
 }
 
 .car-block:hover {
-  background-color: grey;
   color: white;
   opacity: 1;
   background-image: url("/light-trail-photography_P1_900x420.png");
@@ -84,6 +80,9 @@
   transform: scale(1.1);
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
   transition: all 0.6s ease;
+}
+.car-block:hover .car-block__img {
+  opacity: 1;
 }
 
 @keyframes shimmer {

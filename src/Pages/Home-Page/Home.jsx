@@ -37,7 +37,7 @@ const Home = () => {
     <main className="home-container">
       <header className="home-container__content-header">
         <h1 className="title">Cars</h1>
-        {favorites.length && (
+        {favorites.length ? (
           <button
             className="favorites-toogle"
             onClick={() => setShowFavorites((prev) => !prev)}
@@ -45,12 +45,12 @@ const Home = () => {
             Show {!showFavorites ? "Favorited" : "All"} Cars{" "}
             {!showFavorites && "Only"}
           </button>
-        )}
-        {user && (
+        ) : ''}
+        {user ? (
           <button className="link" onClick={() => navigate("/new")}>
             Add A Car
           </button>
-        )}
+        ) : ''}
       </header>
       <div className="home-container__content-grid">
         {showFavorites &&
