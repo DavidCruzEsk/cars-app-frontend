@@ -127,6 +127,11 @@
     outline: none;
   }
 
+  input::placeholder {
+    color: #141313;
+    opacity: 1;
+  }
+
 }
 
 .main-btns{
