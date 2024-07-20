@@ -1,0 +1,58 @@
+.nav-container {
+  grid-area: "header";
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 5rem;
+}
+.nav-container__title h1 {
+  cursor: pointer;
+}
+.nav-container__login button {
+  background: black;
+  color: white;
+  border: 0.2rem solid lightgray;
+  border-radius: 1.2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.nav-container__login button:hover {
+  box-shadow: 0 0 1rem 0.3rem lightgray;
+}
+.nav-container__login button:active {
+  box-shadow: none;
+}
+
+.menu-positioning {
+  position: relative;
+}
+.menu-positioning span {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+}
+.menu-positioning span,
+.menu-positioning .menu-arrow {
+  cursor: pointer;
+}
+.menu-positioning .menu {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  z-index: 1;
+  border: 0.1rem solid black;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 1rem 0.3rem lightgray;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  width: 10rem;
+  padding: 0.5rem;
+}
+.menu-positioning .menu span {
+  padding: 0.5rem;
+  border-bottom: 0.1rem solid lightgray;
+}
+
+/*# sourceMappingURL=nav.css.map */
