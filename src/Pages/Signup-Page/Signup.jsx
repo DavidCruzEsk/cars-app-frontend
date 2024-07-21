@@ -2,8 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { LogInContext } from "../Context/LogInContext";
-import { LuEye } from "react-icons/lu";
-import { LuEyeOff } from "react-icons/lu";
+import { LuEye, LuEyeOff } from "react-icons/lu";
 import "./Styling/signup.css";
 import { validatePassword } from "../Helper-Functions/validatePassword.js";
 
@@ -96,155 +95,182 @@ const Signup = () => {
 
   return (
     <form onSubmit={handleSubmit} className="signup-form">
-      <div className="signup-form__section">
-        <h2>Sign Up</h2>
+      <div className="signup-form__left-panel">
+        <video className="flipped-video" autoPlay muted loop id="left-panel-video">
+          <source src="/videos/flipped-image.mp4.mov" type="video/mp4" />
+          Your browser does not support HTML5 video.
+        </video>
       </div>
-      <div className="signup-form__section">
-        <label htmlFor="firstName">First Name:</label>
-        <div className="form-input">
-          <input
-            type="text"
-            id="firstName"
-            name="firstName"
-            value={credentials.firstName}
-            onChange={handleInputChange}
-          />
-        </div>
-      </div>
-      <div className="signup-form__section">
-        <label htmlFor="lastName">Last Name:</label>
-        <div className="form-input">
-          <input
-            type="text"
-            id="lastName"
-            name="lastName"
-            value={credentials.lastName}
-            onChange={handleInputChange}
-          />
-        </div>
-      </div>
-      <div className="signup-form__section">
-        <label htmlFor="birthDate">Birth Date:</label>
-        <div className="form-input">
-          <input
-            type="date"
-            id="birthDate"
-            name="birthDate"
-            value={credentials.birthDate}
-            onChange={handleInputChange}
-          />
-        </div>
-      </div>
-      <div className="signup-form__section">
-        <label htmlFor="email">Email:</label>
-        <div className="form-input">
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={credentials.email}
-            onChange={handleInputChange}
-          />
-        </div>
-      </div>
-      <div className="signup-form__section">
-        <label htmlFor="username">Username:</label>
-        <div className="form-input">
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value={credentials.username}
-            onChange={handleInputChange}
-          />
-        </div>
-      </div>
-      <div className="signup-form__section">
-        <label htmlFor="password">Password:</label>
-        <div className="form-input">
-          <input
-            type={passwordVisibility ? "text" : "password"}
-            id="password"
-            name="password"
-            value={credentials.password}
-            onChange={handleInputChange}
-          />
-          {passwordVisibility ? (
-            <LuEyeOff onClick={() => setPasswordVisibility((prev) => !prev)} />
-          ) : (
-            <LuEye onClick={() => setPasswordVisibility((prev) => !prev)} />
-          )}
-        </div>
-      </div>
-      {!passwordPassed && !credentials.password ? (
-        ""
-      ) : !passwordPassed ? (
-        <ul className="signup-form__section validations">
-          <li style={{ color: validationResults.length ? "green" : "red" }}>
-            At least 12 characters
-          </li>
-          <li style={{ color: validationResults.lowercase ? "green" : "red" }}>
-            At least one lowercase letter
-          </li>
-          <li style={{ color: validationResults.uppercase ? "green" : "red" }}>
-            At least one uppercase letter
-          </li>
-          <li style={{ color: validationResults.number ? "green" : "red" }}>
-            At least one number
-          </li>
-          <li
-            style={{ color: validationResults.specialChar ? "green" : "red" }}
-          >
-            At least one special character
-          </li>
-          <li
-            style={{
-              color:
-                validationResults.noRepeat && credentials.password
-                  ? "green"
-                  : "red",
-            }}
-          >
-            No repeating characters in a row
-          </li>
-        </ul>
-      ) : (
+
+      <div className="signup-form__middle-panel">
+        <video autoPlay muted loop id="left-panel-video">
+          <source src="/videos/5281523-hd_720_1280_30fps.mp4" type="video/mp4" />
+          Your browser does not support HTML5 video.
+        </video>
+
         <div className="signup-form__section">
-          <label htmlFor="confirmPassword">Confirm Password:</label>
+          <h2 className="signup-form__section__signup-header">Sign Up</h2>
+        </div>
+        <div className="signup-form__section">
+          {/* <label htmlFor="firstName">First Name:</label> */}
+          <div className="form-input">
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              placeholder="First Name"
+              value={credentials.firstName}
+              onChange={handleInputChange}
+            />
+          </div>
+        </div>
+        <div className="signup-form__section">
+          {/* <label htmlFor="lastName">Last Name:</label> */}
+          <div className="form-input">
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              placeholder="Last Name"
+              value={credentials.lastName}
+              onChange={handleInputChange}
+            />
+          </div>
+        </div>
+        <div className="signup-form__section">
+          <label className='label-birthdate' htmlFor="birthDate">Birth Date:</label>
+          <div className="form-input">
+            <input
+              type="date"
+              id="birthDate"
+              name="birthDate"
+              value={credentials.birthDate}
+              onChange={handleInputChange}
+            />
+          </div>
+        </div>
+        <div className="signup-form__section">
+          {/* <label htmlFor="email">Email:</label> */}
+          <div className="form-input">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="email"
+              value={credentials.email}
+              onChange={handleInputChange}
+            />
+          </div>
+        </div>
+        <div className="signup-form__section">
+          {/* <label htmlFor="username">Username:</label> */}
+          <div className="form-input">
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="username"
+              value={credentials.username}
+              onChange={handleInputChange}
+            />
+          </div>
+        </div>
+        <div className="signup-form__section">
+          {/* <label htmlFor="password">Password:</label> */}
           <div className="form-input">
             <input
               type={passwordVisibility ? "text" : "password"}
-              id="confirmPassword"
-              name="confirmPassword"
-              value={credentials.confirmPassword}
+              id="password"
+              name="password"
+              placeholder="password"
+              value={credentials.password}
               onChange={handleInputChange}
             />
             {passwordVisibility ? (
-              <LuEyeOff
-                onClick={() => setPasswordVisibility((prev) => !prev)}
-              />
+              <LuEyeOff onClick={() => setPasswordVisibility((prev) => !prev)} />
             ) : (
               <LuEye onClick={() => setPasswordVisibility((prev) => !prev)} />
             )}
           </div>
         </div>
-      )}
-      <div className="signup-form__section main-btns">
-        <button type="button" onClick={() => navigate("/")}>
-          Cancel
-        </button>
-        <button type="submit">Sign Up</button>
+        {!passwordPassed && !credentials.password ? (
+          ""
+        ) : !passwordPassed ? (
+          <ul className="signup-form__section validations">
+            <li style={{ color: validationResults.length ? "green" : "red" }}>
+              At least 12 characters
+            </li>
+            <li style={{ color: validationResults.lowercase ? "green" : "red" }}>
+              At least one lowercase letter
+            </li>
+            <li style={{ color: validationResults.uppercase ? "green" : "red" }}>
+              At least one uppercase letter
+            </li>
+            <li style={{ color: validationResults.number ? "green" : "red" }}>
+              At least one number
+            </li>
+            <li
+              style={{ color: validationResults.specialChar ? "green" : "red" }}
+            >
+              At least one special character
+            </li>
+            <li
+              style={{
+                color:
+                  validationResults.noRepeat && credentials.password
+                    ? "green"
+                    : "red",
+              }}
+            >
+              No repeating characters in a row
+            </li>
+          </ul>
+        ) : (
+          <div className="signup-form__section">
+            <label htmlFor="confirmPassword">Confirm Password:</label>
+            <div className="form-input">
+              <input
+                type={passwordVisibility ? "text" : "password"}
+                id="confirmPassword"
+                name="confirmPassword"
+                value={credentials.confirmPassword}
+                onChange={handleInputChange}
+              />
+              {passwordVisibility ? (
+                <LuEyeOff
+                  onClick={() => setPasswordVisibility((prev) => !prev)}
+                />
+              ) : (
+                <LuEye onClick={() => setPasswordVisibility((prev) => !prev)} />
+              )}
+            </div>
+          </div>
+        )}
+        <div className="signup-form__section main-btns">
+          <button type="button" onClick={() => navigate("/")}>
+            Cancel
+          </button>
+          <button type="submit">Sign Up</button>
+        </div>
+        <div className="signup-form__section switch-btn">
+          <button type="button" onClick={() => navigate("/login")}>
+            Log In
+          </button>
+        </div>
+        <div className="signup-form__section error">
+          {error && <p>{error}</p>}
+        </div>
       </div>
-      <div className="signup-form__section switch-btn">
-        <button type="button" onClick={() => navigate("/login")}>
-          Log In
-        </button>
-      </div>
-      <div className="signup-form__section error">
-        {error && <p>{error}</p>}
+
+      <div className="signup-form__right-panel">
+        <video autoPlay muted loop id="right-panel-video">
+          <source src="/videos/6291875-hd_1080_1920_30fps.mp4" type="video/mp4" />
+          Your browser does not support HTML5 video.
+        </video>
       </div>
     </form>
   );
 };
 
 export default Signup;
+

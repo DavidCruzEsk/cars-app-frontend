@@ -39,10 +39,10 @@ const LogIn = () => {
       <div className='login-form__right-panel'>
       </div>
       <div className='login-form__middle-panel'>
-      <video autoPlay muted loop id="myVideo">
-    <source src="/videos/9518354-uhd_2160_4096_25fps.mp4" type="video/mp4" />
-    Your browser does not support HTML5 video.
-  </video>
+        <video autoPlay muted loop id="myVideo">
+          <source src="/videos/9518354-uhd_2160_4096_25fps.mp4" type="video/mp4" />
+          Your browser does not support HTML5 video.
+        </video>
         <div className="login-form__section">
           <h2 className='log-in-header'>Log In</h2>
         </div>

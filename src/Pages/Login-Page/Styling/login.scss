@@ -119,8 +119,8 @@
     display: flex;
     align-items: center;
     border: 1px solid black;
-    border-radius: 10px;      
-    padding: 2px;              
+    border-radius: 10px;
+    padding: 2px;
     background-color: rgba(255, 255, 255, 0);
     text-align: center;
     border: none;
@@ -128,10 +128,9 @@
   }
 
   input::placeholder {
-    color: #141313;
+    color: src#141313;
     opacity: 1;
   }
-
 }
 
 .main-btns{

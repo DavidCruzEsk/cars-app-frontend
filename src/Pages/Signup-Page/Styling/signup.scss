@@ -1,20 +1,88 @@
-.signup-form{
-  grid-area: 'content';
+@import url('https://fonts.googleapis.com/css2?family=Seaweed+Script&display=swap');
+
+.signup-form {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: repeat(10, auto);
-  padding: 1rem;
-  &__section{
-    grid-column: 2/ span 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  grid-template-rows: auto;
+  height: 100vh;
+}
+
+.signup-form__left-panel,
+.signup-form__middle-panel,
+.signup-form__right-panel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.signup-form__left-panel video,
+.signup-form__middle-panel video,
+.signup-form__right-panel video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.flipped-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+.signup-form__middle-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 150px;
+}
+
+.signup-form__section {
+  margin: 10px 0;
+}
+
+.form-input {
+  display: flex;
+  align-items: center;
+
+  input::placeholder {
+    color: rgb(10, 10, 10);
+    opacity: 1;
   }
 }
 
-.validations{
+
+.validations {
   display: flex;
   flex-direction: column;
 }
 
-// for form-input, main-btns, switch-btn, and error, the styles are the same as login.scss
+.main-btns button,
+.switch-btn button {
+  margin: 5px;
+}
+
+.error {
+  color: red;
+  text-align: center;
+}
+
+.label-birthdate {
+  margin-left: 40px;
+}
+
+.signup-form__section__signup-header {
+  font-family: 'Seaweed Script', cursive;
+  font-size: 60px;
+  color: white;
+}
