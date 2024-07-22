@@ -37,6 +37,9 @@ const Home = () => {
   return (
     <CarsContext.Provider value={{ favorites, setFavorites }}>
       <main className="home-container">
+        <video autoPlay mute loop className="home-container__home-bg-video">
+          <source src="/videos/9150545-hd_1920_1080_24fps.mp4" type="video/mp4" />
+        </video>
         <header className="home-container__content-header">
           <h1 className="title">Cars</h1>
           {favorites.length ? (

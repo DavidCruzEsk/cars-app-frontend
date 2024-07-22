@@ -54,11 +54,19 @@
 .form-input {
   display: flex;
   align-items: center;
+  border: none;
 
   input::placeholder {
     color: rgb(10, 10, 10);
     opacity: 1;
+    font-size: larger;
   }
+}
+
+
+.form-input:hover {
+  background-color: white;
+  opacity: 1;
 }
 
 
@@ -80,9 +88,17 @@
 .label-birthdate {
   margin-left: 40px;
 }
+.label-birthdate:hover + .form-input input {
+  background-color: white;
+}
 
 .signup-form__section__signup-header {
   font-family: 'Seaweed Script', cursive;
   font-size: 60px;
   color: white;
+}
+
+.label-birthdate {
+  color: white;
+  font-size: larger;
 }
