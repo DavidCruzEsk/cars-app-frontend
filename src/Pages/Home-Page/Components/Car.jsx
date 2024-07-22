@@ -1,15 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { MdFavoriteBorder } from "react-icons/md";
 import { MdFavorite } from "react-icons/md";
+import { LogInContext } from "../../Context/LogInContext.jsx";
+import { CarsContext } from "../../Context/CarsContext.jsx";
 
-const Car = ({ car, setFavorites, favorites, userId }) => {
+const Car = ({ car }) => {
+  const { user } = useContext(LogInContext);
+  const { favorites, setFavorites } = useContext(CarsContext);
   const USERS = import.meta.env.VITE_BASE_URL_USERS;
   const navigate = useNavigate();
   const { id, make, year, model, imgUrl } = car;
   const [isFavorite, setIsFavorite] = useState(false);
- 
+
   useEffect(() => {
     if (favorites.includes(id)) {
       setIsFavorite(true);
@@ -36,7 +40,7 @@ const Car = ({ car, setFavorites, favorites, userId }) => {
                 axios
                   .post(`${USERS}/add-favorite`, {
                     carId: id,
-                    userId: userId,
+                    userId: user.id,
                   })
                   .then((res) => {
                     if (res.data.carIds) {
@@ -54,7 +58,7 @@ const Car = ({ car, setFavorites, favorites, userId }) => {
               onClick={(e) => {
                 e.stopPropagation();
                 axios
-                  .delete(`${USERS}/remove-favorite/${userId}/${id}`)
+                  .delete(`${USERS}/remove-favorite/${user.id}/${id}`)
                   .then((res) => {
                     if (res.data.carIds) {
                       setFavorites(res.data.carIds);
