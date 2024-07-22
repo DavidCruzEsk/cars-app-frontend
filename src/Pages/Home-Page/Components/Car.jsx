@@ -1,8 +1,23 @@
-import {useNavigate} from 'react-router-dom';
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { MdFavoriteBorder } from "react-icons/md";
+import { MdFavorite } from "react-icons/md";
 
-const Car = ({car}) => {
+const Car = ({ car, setFavorites, favorites, userId }) => {
+  const USERS = import.meta.env.VITE_BASE_URL_USERS;
   const navigate = useNavigate();
-  const {id, make, year, model, imgUrl} = car;
+  const { id, make, year, model, imgUrl } = car;
+  const [isFavorite, setIsFavorite] = useState(false);
+ 
+  useEffect(() => {
+    if (favorites.includes(id)) {
+      setIsFavorite(true);
+    } else {
+      setIsFavorite(false);
+    }
+  }, [favorites]);
+
   return (
     <div onClick={() => navigate(`/${id}`)} className="car-block" key={id}>
       <img
@@ -13,6 +28,44 @@ const Car = ({car}) => {
         height="125px"
       />
       <div className="car-block__details">
+        {!isFavorite ? (
+          <p>
+            <MdFavoriteBorder
+              onClick={(e) => {
+                e.stopPropagation();
+                axios
+                  .post(`${USERS}/add-favorite`, {
+                    carId: id,
+                    userId: userId,
+                  })
+                  .then((res) => {
+                    if (res.data.carIds) {
+                      setFavorites(res.data.carIds);
+                    } else {
+                      setFavorites([]);
+                    }
+                  });
+              }}
+            />
+          </p>
+        ) : (
+          <p>
+            <MdFavorite
+              onClick={(e) => {
+                e.stopPropagation();
+                axios
+                  .delete(`${USERS}/remove-favorite/${userId}/${id}`)
+                  .then((res) => {
+                    if (res.data.carIds) {
+                      setFavorites(res.data.carIds);
+                    } else {
+                      setFavorites([]);
+                    }
+                  });
+              }}
+            />
+          </p>
+        )}
         <h3 className="make">{make}</h3>
         <h2 className="model">
           <i>{model}</i>
