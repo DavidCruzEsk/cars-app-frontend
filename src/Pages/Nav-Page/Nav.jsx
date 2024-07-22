@@ -22,7 +22,7 @@ const Nav = () => {
 
   return (
     <LogInContext.Provider value={{ user, setUser }}>
-      <nav className="nav-container">
+      {!checkPath ? <nav className="nav-container nav-bg">
         <div className="nav-container__title">
           <h1 onClick={() => navigate("/")}>Cars App</h1>
         </div>
@@ -41,7 +41,32 @@ const Nav = () => {
         ) : (
           ""
         )}
-      </nav>
+      </nav> :
+      <nav className="nav-container">
+
+        <video autoPlay mute loop className='nav-container__background-video'>
+          <source src="/videos/6118048-uhd_4096_2160_25fps.mp4" type="video/mp4"/>
+        </video>
+
+        <div className="nav-container__title">
+          <h1 onClick={() => navigate("/")}>Cars App</h1>
+        </div>
+        {user ? (
+          <Welcome />
+        ) : checkPath ? (
+          <div className="nav-container__login">
+            <button
+              onClick={() => {
+                navigate("/login");
+              }}
+            >
+              Log In
+            </button>
+          </div>
+        ) : (
+          ""
+        )}
+      </nav>}
       <Outlet />
     </LogInContext.Provider>
   );
