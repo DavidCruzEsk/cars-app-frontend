@@ -32,6 +32,13 @@
   transform: translate(-50%, -50%);
 }
 
+.favorites-toggle, .create-user {
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: none;
+  z-index: 1;
+}
+
 .car-block {
   background-color: white;
   border-radius: 10px;
