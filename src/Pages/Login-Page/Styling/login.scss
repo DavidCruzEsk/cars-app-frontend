@@ -123,13 +123,19 @@
     padding: 2px;
     background-color: rgba(255, 255, 255, 0);
     text-align: center;
-    border: none;
+    border:none;
     outline: none;
   }
 
   input::placeholder {
     color: src#141313;
     opacity: 1;
+  }
+
+  input:focus, input:hover {
+    border-color: white;
+    box-shadow: 0 0 10px 7px rgba(255, 255, 255, 1); 
+    outline: none; 
   }
 }
 
@@ -167,6 +173,13 @@
 
 button {
   opacity: .7;
+}
+
+button:hover {
+  border-color: white;
+  box-shadow: 0 0 10px 4px rgba(255, 255, 255, 9); 
+  outline: none;
+  opacity: 1;
 }
 
 

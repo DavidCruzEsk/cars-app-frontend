@@ -4,6 +4,7 @@
   flex-direction: column;
   padding: 2rem;
   background-color: rgb(242, 238, 238);
+  position: relative;
   &__content-header {
     display: flex;
     justify-content: space-between;
@@ -20,18 +21,28 @@
     gap: 20px;
     padding: 15px;
   }
+  &__home-bg-video {
+    position: absolute;
+    opacity: .4;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    // margin-top: 40px;  // For the other CSS, take out the margin so it wont move the page in scroll mode.
+  }
 }
 
 .car-block {
-  // background-color: white;
+  background-color: white;
   border-radius: 10px;
   text-align: center;
   padding: 10px;
-  // box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   position: relative;
-  // background-image: url('/metal-background-hq-desktop-wallpaper-16392.jpg');
-  // opacity: 0.8;
+  background-image: url('/metal-background-hq-desktop-wallpaper-16392.jpg');
   transition: all 0.6s ease;
   cursor: pointer;
   &__img {
@@ -43,6 +54,7 @@
     display: flex;
     text-align: center;
     align-items: center;
+    justify-content: center;
     .make {
       margin-left: 30px;
       margin-right: 10px;
@@ -75,9 +87,8 @@
 }
 
 .car-block:hover {
-  // background-color: grey;
+  background-color: grey;
   color: white;
-  opacity: 1;
   background-image: url('/light-trail-photography_P1_900x420.png');
   background-size: contain;
   background-size: cover;
@@ -98,4 +109,8 @@
   100% {
     left: -100%;
   }
+}
+
+.title {
+  z-index: 1;
 }
