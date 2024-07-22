@@ -57,11 +57,11 @@ const Home = () => {
           cars
             .filter((car) => favorites.includes(car.id))
             .map((car) => (
-              <Car car={car} key={car.id} setFavorites={setFavorites} />
+              <Car car={car} key={car.id} setFavorites={setFavorites} favorites={favorites} userId={user.id}/>
             ))}
         {!showFavorites &&
           cars.map((car) => (
-            <Car car={car} key={car.id} setFavorites={setFavorites} />
+            <Car car={car} key={car.id} setFavorites={setFavorites} favorites={favorites} userId={user.id}/>
           ))}
       </div>
     </main>
