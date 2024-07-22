@@ -37,13 +37,12 @@
 }
 .login-form__middle-panel {
   position: relative;
-  width: 100%;
-  height: 100vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   grid-column: 2/span 1;
+  grid-row: 1/span 10;
 }
 .login-form #myVideo {
   position: absolute;

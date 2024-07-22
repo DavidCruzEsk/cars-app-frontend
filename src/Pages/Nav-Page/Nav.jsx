@@ -1,4 +1,4 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { LogInContext } from "../Context/LogInContext";
 import "./Styling/nav.css";
@@ -11,42 +11,28 @@ const Nav = () => {
     return savedUser ? JSON.parse(savedUser) : false;
   });
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(user));
   }, [user]);
 
   const checkPath =
-    !window.location.href.includes("login") &&
-    !window.location.href.includes("signup");
+    !location.pathname.includes("login") &&
+    !location.pathname.includes("signup");
+
+  const isHomePage = location.pathname === "/";
 
   return (
     <LogInContext.Provider value={{ user, setUser }}>
-      {!checkPath ? <nav className="nav-container nav-bg">
-        <div className="nav-container__title">
-          <h1 onClick={() => navigate("/")}>Cars App</h1>
-        </div>
-        {user ? (
-          <Welcome />
-        ) : checkPath ? (
-          <div className="nav-container__login">
-            <button
-              onClick={() => {
-                navigate("/login");
-              }}
-            >
-              Log In
-            </button>
-          </div>
+      <nav className={`nav-container ${!isHomePage ? "nav-bg-image" : "nav-bg-video"}`}>
+        {isHomePage ? (
+          <video autoPlay muted loop className="nav-container__background-video">
+            <source src="/videos/6118048-uhd_4096_2160_25fps.mp4" type="video/mp4" />
+          </video>
         ) : (
-          ""
+          <img src="/pexels-pixabay-248747.jpg" alt="Navbar Background" className="nav-container__background-image" />
         )}
-      </nav> :
-      <nav className="nav-container">
-
-        <video autoPlay mute loop className='nav-container__background-video'>
-          <source src="/videos/6118048-uhd_4096_2160_25fps.mp4" type="video/mp4"/>
-        </video>
 
         <div className="nav-container__title">
           <h1 onClick={() => navigate("/")}>Cars App</h1>
@@ -55,18 +41,12 @@ const Nav = () => {
           <Welcome />
         ) : checkPath ? (
           <div className="nav-container__login">
-            <button
-              onClick={() => {
-                navigate("/login");
-              }}
-            >
-              Log In
-            </button>
+            <button onClick={() => navigate("/login")}>Log In</button>
           </div>
         ) : (
           ""
         )}
-      </nav>}
+      </nav>
       <Outlet />
     </LogInContext.Provider>
   );

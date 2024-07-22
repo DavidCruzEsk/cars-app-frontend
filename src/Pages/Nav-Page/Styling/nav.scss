@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
 .nav-container {
-  grid-area: 'header';
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,6 +17,7 @@
     font-style: normal;
     font-size: 50px;
   }
+
   &__login {
     button {
       background: black;
@@ -35,6 +35,7 @@
       }
     }
   }
+
   &__background-video {
     position: absolute;
     top: 50%;
@@ -46,11 +47,24 @@
     transform: translate(-50%, -50%);
     z-index: -1;
   }
+
+  &__background-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    object-position: center 28%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    padding-bottom: 5px;
+  }
 }
 
 .menu-positioning {
   position: relative;
-  span{
+  span {
     display: flex;
     align-items: center;
     font-size: 1.2rem;

@@ -3,15 +3,13 @@
   display: grid;
   grid-template-columns: 1fr 1.2fr 1fr;
   grid-template-rows: auto;
-  height: 100vh;
+  overflow: hidden;
 }
 
 .signup-form__left-panel,
 .signup-form__middle-panel,
 .signup-form__right-panel {
   position: relative;
-  width: 100%;
-  height: 100%;
   overflow: hidden;
 }
 
