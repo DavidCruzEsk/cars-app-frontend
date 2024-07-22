@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { LogInContext } from "../Context/LogInContext";
+import { CarsContext } from "../Context/CarsContext";
 import "./Styling/home.css";
 import Car from "./Components/Car";
 
@@ -34,37 +35,49 @@ const Home = () => {
   }, [user]);
 
   return (
-    <main className="home-container">
-      <header className="home-container__content-header">
-        <h1 className="title">Cars</h1>
-        {favorites.length ? (
-          <button
-            className="favorites-toogle"
-            onClick={() => setShowFavorites((prev) => !prev)}
-          >
-            Show {!showFavorites ? "Favorited" : "All"} Cars{" "}
-            {!showFavorites && "Only"}
-          </button>
-        ) : ''}
-        {user ? (
-          <button className="link" onClick={() => navigate("/new")}>
-            Add A Car
-          </button>
-        ) : ''}
-      </header>
-      <div className="home-container__content-grid">
-        {showFavorites &&
-          cars
-            .filter((car) => favorites.includes(car.id))
-            .map((car) => (
-              <Car car={car} key={car.id} setFavorites={setFavorites} favorites={favorites} userId={user.id}/>
+    <CarsContext.Provider value={{ favorites, setFavorites }}>
+      <main className="home-container">
+        <header className="home-container__content-header">
+          <h1 className="title">Cars</h1>
+          {favorites.length ? (
+            <button
+              className="favorites-toogle"
+              onClick={() => setShowFavorites((prev) => !prev)}
+            >
+              Show {!showFavorites ? "Favorited" : "All"} Cars{" "}
+              {!showFavorites && "Only"}
+            </button>
+          ) : (
+            ""
+          )}
+          {user ? (
+            <button className="link" onClick={() => navigate("/new")}>
+              Add A Car
+            </button>
+          ) : (
+            ""
+          )}
+        </header>
+        <div className="home-container__content-grid">
+          {showFavorites &&
+            cars
+              .filter((car) => favorites.includes(car.id))
+              .map((car) => (
+                <Car
+                  car={car}
+                  key={car.id}
+                />
+              ))}
+          {!showFavorites &&
+            cars.map((car) => (
+              <Car
+                car={car}
+                key={car.id}
+              />
             ))}
-        {!showFavorites &&
-          cars.map((car) => (
-            <Car car={car} key={car.id} setFavorites={setFavorites} favorites={favorites} userId={user.id}/>
-          ))}
-      </div>
-    </main>
+        </div>
+      </main>
+    </CarsContext.Provider>
   );
 };
 
