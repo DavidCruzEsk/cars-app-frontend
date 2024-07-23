@@ -8,7 +8,8 @@ import { MdFavoriteBorder } from "react-icons/md";
 import { MdFavorite } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import { TiEdit } from "react-icons/ti";
-import Comment from './Components/Comment';
+import { TiArrowBackOutline } from "react-icons/ti";
+import Comment from "./Components/Comment";
 
 const Show = () => {
   const API = import.meta.env.VITE_BASE_URL;
@@ -19,7 +20,8 @@ const Show = () => {
   const [car, setCar] = useState({});
   const [favorites, setFavorites] = useState([]);
   const [isFavorite, setIsFavorite] = useState(false);
-  const {isComponentVisible, setIsComponentVisible, ref} = useComponentVisible(false);
+  const { isComponentVisible, setIsComponentVisible, ref } =
+    useComponentVisible(false);
   const [comments, setComments] = useState([]);
   const { year, make, model, trim, color, price, imgUrl, discontinued } = car;
   const [newComment, setNewComment] = useState("");
@@ -32,9 +34,10 @@ const Show = () => {
   }, []);
 
   useEffect(() => {
-    axios.get(`${USERS}/comments/${id}`).then((res) => !res.data.error && setComments(res.data));
+    axios
+      .get(`${USERS}/comments/${id}`)
+      .then((res) => !res.data.error && setComments(res.data));
   }, [comments]);
-
 
   useEffect(() => {
     axios.get(`${USERS}/favorites/${user.id}`).then((res) => {
@@ -70,6 +73,11 @@ const Show = () => {
 
   return (
     <main className="show-container">
+      <div className="back-home">
+        <button onClick={() => navigate(-1)}>
+          <TiArrowBackOutline />
+        </button>
+      </div>
       <section className="show-container__car-info">
         <div className="car-img">
           <img src={imgUrl} alt="car" />
@@ -123,15 +131,16 @@ const Show = () => {
                 <div className="delete-car__window">
                   <button
                     onClick={() => {
-                      axios
-                        .delete(`${API}/${id}`)
-                        .then((res) => navigate("/"));
+                      axios.delete(`${API}/${id}`).then((res) => navigate("/"));
                     }}
                   >
                     Yes
                   </button>
-                  <button onClick={() => setIsComponentVisible(false)}>No</button>
-                </div>)}
+                  <button onClick={() => setIsComponentVisible(false)}>
+                    No
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         )}
@@ -150,7 +159,12 @@ const Show = () => {
         )}
         <div className="comments">
           {comments.map((comment) => (
-            <Comment key={comment.id} comment={comment} setComments={setComments} carId={id}/> 
+            <Comment
+              key={comment.id}
+              comment={comment}
+              setComments={setComments}
+              carId={id}
+            />
           ))}
         </div>
       </section>
