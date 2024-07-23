@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Seaweed+Script&display=swap');
+
+.login-form{
+  grid-area: 'content';
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  // overflow: hidden;
+  &__left-panel {
+    @keyframes flicker-left-panel {
+      0% {
+        background-image: url('/patrick-langwallner-afnQQfeMjUs-unsplash flipped.jpg');
+        filter: none;
+      }
+      70% {
+        background-image: url('/patrick-langwallner-afnQQfeMjUs-unsplash flipped.jpg');
+        filter: brightness(1.5);
+      }
+      80% {
+        background-image: url('/patrick-langwallner-afnQQfeMjUs-unsplash flipped.jpg');
+        filter: brightness(2);
+      }
+      90% {
+        background-image: url('/patrick-langwallner-afnQQfeMjUs-unsplash flipped.jpg');
+        filter: none;
+      }
+
+      100% {
+        background-image: url('/patrick-langwallner-afnQQfeMjUs-unsplash flipped.jpg');
+        filter: none;
+      }
+    }
+
+    grid-column: 1 / span 1;
+    background-image: url('/patrick-langwallner-afnQQfeMjUs-unsplash flipped.jpg');
+    grid-row: 1 / span 10;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: flicker-left-panel 5s ease-in-out infinite;
+  }
+
+  &__middle-panel{
+    position: relative;
+    grid-column: 2/ span 1;
+    grid-row: 1/ span 10;
+  }
+
+  #myVideo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity: .8;
+  }
+
+  &__section{
+    position: relative;
+    z-index: 1;
+
+    font-size: 1.65em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem 0;
+  }
+  &__right-panel {
+    @keyframes flicker-right-panel {
+      0% {
+        background-image: url('/patrick-langwallner-afnQQfeMjUs-unsplash.jpg');
+        filter: none;
+      }
+      70% {
+        background-image: url('/patrick-langwallner-afnQQfeMjUs-unsplash.jpg');
+        filter: brightness(1.5);
+      }
+      80% {
+        background-image: url('/patrick-langwallner-afnQQfeMjUs-unsplash.jpg');
+        filter: brightness(2);
+      }
+      90% {
+        background-image: url('/patrick-langwallner-afnQQfeMjUs-unsplash.jpg');
+        filter: none;
+      }
+      100% {
+        background-image: url('/patrick-langwallner-afnQQfeMjUs-unsplash.jpg');
+        filter: none;
+      }
+    }
+
+    background-image: url('/patrick-langwallner-afnQQfeMjUs-unsplash.jpg');
+    grid-column: 3 / span 1;
+    grid-row: 1 / span 10;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: flicker-right-panel 5s ease-in-out infinite;
+  }
+}
+
+.form-input{
+  display: flex;
+  align-items: center;
+  border: 0.08rem solid black;
+  border-radius: 1.3rem;
+  padding: 0.2rem 0.8rem;
+  margin-left: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.467);
+  input{
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 2px;
+    background-color: rgba(255, 255, 255, 0);
+    text-align: center;
+    border:none;
+    outline: none;
+  }
+
+  input::placeholder {
+    color: src#141313;
+    opacity: 1;
+  }
+
+  input:focus, input:hover {
+    border-color: white;
+    box-shadow: 0 0 10px 7px rgba(255, 255, 255, 1); 
+    outline: none; 
+  }
+}
+
+.main-btns{
+  button{
+    border: none;
+    outline: none;
+    padding: 0.5rem 1rem;
+    border-radius: 1.3rem;
+    margin: 0 3rem;
+    cursor: pointer;
+  }
+}
+
+.switch-btn{
+  button{
+    border: none;
+    outline: none;
+    padding: 0.5rem 1rem;
+    border-radius: 1.3rem;
+    cursor: pointer;
+  }
+}
+
+.error{
+  p{
+    color: white;
+    text-shadow: 0 .3rem .3rem red;
+  }
+}
+
+.log-in-header {
+  font-family: 'Seaweed Script', cursive;
+  font-size: 60px;
+}
+
+button {
+  opacity: .7;
+}
+
+button:hover {
+  border-color: white;
+  box-shadow: 0 0 10px 4px rgba(255, 255, 255, 9); 
+  outline: none;
+  opacity: 1;
+}
+
+@media only screen and (max-width: 430px){
+  .login-form{
+    &__right-panel, &__left-panel{
+      display: none;
+    }
+    &__middle-panel{
+      grid-column: 1/ span 3;
+    }
+  }
+}

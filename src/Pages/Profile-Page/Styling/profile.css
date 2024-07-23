@@ -1,0 +1,79 @@
+.profile-page {
+  grid-area: "content";
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background-image: url("/ixography-05Q_XPF_YKs-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.profile-page__info {
+  grid-column: 1/span 1;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  width: fit-content;
+  height: fit-content;
+  margin: 0.5rem;
+  border-radius: 2rem;
+}
+.profile-page__info h1, .profile-page__info h2 {
+  margin: 0.5rem 0;
+}
+.profile-page__buttons {
+  display: flex;
+}
+.profile-page__buttons button {
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  background: lightgray;
+  border: none;
+  border-radius: 1.2rem;
+}
+.profile-page__buttons button:hover {
+  box-shadow: 0 0 0.5rem 0.3rem lightgray;
+}
+.profile-page__buttons button:active {
+  box-shadow: none;
+}
+.profile-page__favorites {
+  color: white;
+  grid-column: 2/span 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 2rem;
+  overflow: scroll;
+}
+.profile-page__favorites .mini-car-info {
+  margin: 1rem 0;
+  display: flex;
+  cursor: pointer;
+}
+.profile-page__favorites .mini-car-info img {
+  width: 200px;
+  height: 100px;
+  border-radius: 1.2rem;
+}
+.profile-page__favorites .mini-car-info__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 0.5rem;
+  text-align: right;
+}
+
+@media only screen and (max-width: 430px) {
+  .profile-page {
+    display: flex;
+    flex-direction: column;
+  }
+  .profile-page__info {
+    margin: 0.5rem auto;
+  }
+  .profile-page__favorites {
+    align-items: center;
+  }
+}
+
+/*# sourceMappingURL=profile.css.map */

@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 5rem;
+  position: relative;
+}
+.nav-container__title {
+  color: white;
+  font-family: "Great Vibes", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 50px;
+}
+.nav-container__title h1 {
+  cursor: pointer;
+}
+.nav-container__login button {
+  background: black;
+  color: white;
+  border: 0.2rem solid lightgray;
+  border-radius: 1.2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.nav-container__login button:hover {
+  box-shadow: 0 0 1rem 0.3rem lightgray;
+}
+.nav-container__login button:active {
+  box-shadow: none;
+}
+.nav-container__background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 80%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+.nav-container__background-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 28%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  padding-bottom: 5px;
+}
+
+.menu-positioning {
+  position: relative;
+}
+.menu-positioning .menu-btn {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  color: black;
+  background: white;
+  padding: 0.3rem;
+  border-radius: 1.2rem;
+}
+.menu-positioning span,
+.menu-positioning .menu-arrow {
+  cursor: pointer;
+}
+.menu-positioning .menu {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  z-index: 100;
+  border: 0.1rem solid black;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 1rem 0.3rem lightgray;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  width: 10rem;
+  padding: 0.5rem;
+}
+.menu-positioning .menu span {
+  padding: 0.5rem;
+  border-bottom: 0.1rem solid lightgray;
+}
+
+@media only screen and (max-width: 430px) {
+  .nav-container {
+    flex-direction: column;
+  }
+  .nav-container__img {
+    font-size: 15px;
+  }
+}
+
+/*# sourceMappingURL=nav.css.map */
