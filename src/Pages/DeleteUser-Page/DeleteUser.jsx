@@ -4,6 +4,7 @@ import { LogInContext } from "../Context/LogInContext";
 import axios from "axios";
 import { LuEye } from "react-icons/lu";
 import { LuEyeOff } from "react-icons/lu";
+import "./Styling/delete-user.css";
 
 const DeleteUser = () => {
   const BASE_URL = import.meta.env.VITE_BASE_URL_USERS;
@@ -53,9 +54,16 @@ const DeleteUser = () => {
 
   return (
     <form onSubmit={handleSubmit} className="delete-user-form">
+      <h1>Delete Account</h1>
       {!confirmWindow ? (
-        <div className="delete-user-form__inputs">
-          <div className="form-input">
+        <div
+          className="delete-user-form__inputs"
+          style={{
+            borderBottomLeftRadius: "1.3rem",
+            borderBottomRightRadius: "1.3rem",
+          }}
+        >
+          <div className="form-inp">
             <input
               type="text"
               id="username"
@@ -65,7 +73,7 @@ const DeleteUser = () => {
               onChange={handleInputChange}
             />
           </div>
-          <div className="form-input">
+          <div className="form-inp">
             <input
               type={passwordVisibility ? "text" : "password"}
               id="password"
@@ -91,7 +99,7 @@ const DeleteUser = () => {
             <button type="submit">Delete Account</button>
           </div>
           <div className="errors">
-            {error ? <p className="error-message">{error}</p> : ""}
+            {error ? <p style={{ color: "red" }}>{error}</p> : ""}
           </div>
         </div>
       ) : (

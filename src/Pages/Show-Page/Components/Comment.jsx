@@ -6,7 +6,8 @@ import axios from "axios";
 const Comment = ({ comment, setComments, carId }) => {
   const { user } = useContext(LogInContext);
   const [editComment, setEditComment] = useState(false);
-  const {isComponentVisible, setIsComponentVisible, ref} = useComponentVisible(false);
+  const { isComponentVisible, setIsComponentVisible, ref } =
+    useComponentVisible(false);
   const [updatedComment, setUpdatedComment] = useState(comment.comment);
   const USERS = import.meta.env.VITE_BASE_URL_USERS;
   const { firstName, lastName, comment: text, userId, id } = comment;
@@ -21,9 +22,9 @@ const Comment = ({ comment, setComments, carId }) => {
         carId: carId,
       })
       .then((res) => {
-          setEditComment(false);
-          setComments(res.data);
-          setUpdatedComment("");
+        setEditComment(false);
+        setComments(res.data);
+        setUpdatedComment("");
       });
   };
 
@@ -38,37 +39,45 @@ const Comment = ({ comment, setComments, carId }) => {
       )}
       {user.id === userId && !editComment && (
         <div className="comment__buttons" ref={ref}>
-          <button onClick={() => setEditComment(true)}>Edit</button>
-          <div className="delete-comment">
-            <button onClick={() => setIsComponentVisible(true)}>Delete</button>
-            {isComponentVisible && (
-              <div className="delete-comment__window">
-                <button
-                  onClick={() => {
-                    axios
-                      .delete(`${USERS}/delete-comment/${id}/${carId}`)
-                      .then((res) => {
-                          setComments(res.data);
-                      });
-                  }}
-                >
-                  Yes
-                </button>
-                <button onClick={() => setIsComponentVisible(false)}>No</button>
-              </div>
-            )}
-          </div>
+          {!isComponentVisible ? (
+            <>
+              <button onClick={() => setEditComment(true)}>Edit</button>
+              <button onClick={() => setIsComponentVisible(true)}>
+                Delete
+              </button>
+            </>
+          ) : (
+            <>
+              <p>Delete?</p>
+              <button
+                onClick={() => {
+                  axios
+                    .delete(`${USERS}/delete-comment/${id}/${carId}`)
+                    .then((res) => {
+                      setComments(res.data);
+                    });
+                }}
+              >
+                Yes
+              </button>
+              <button onClick={() => setIsComponentVisible(false)}>No</button>
+            </>
+          )}
         </div>
       )}
       {editComment && (
         <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            value={updatedComment}
-            onChange={(e) => setUpdatedComment(e.target.value)}
-          />
-          <button onClick={() => setEditComment(false)}>Cancel</button>
-          <button type="submit">Submit</button>
+          <div className="form-input">
+            <input
+              type="text"
+              value={updatedComment}
+              onChange={(e) => setUpdatedComment(e.target.value)}
+            />
+          </div>
+          <div className="btns">
+            <button onClick={() => setEditComment(false)}>Cancel</button>
+            <button type="submit">Submit</button>
+          </div>
         </form>
       )}
     </div>

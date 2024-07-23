@@ -88,8 +88,8 @@ const FormTemplate = ({ car, setCar, handleSubmit, error, navigate }) => {
         </button>
         <button type="submit">Submit</button>
       </div>
-      <div className="form-container__group error">
-        {error && <p>Missing Fields: {formatError}</p>}
+      <div className="form-container__group">
+        {error && <p style={{color: 'red'}}>Missing Fields: {formatError}</p>}
       </div>
     </form>
   );

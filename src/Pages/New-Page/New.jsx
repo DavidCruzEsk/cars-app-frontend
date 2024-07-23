@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import FormTemplate from "../Shared-Components/FormTemplate";
-// import "./Styling/New-Page.css";
+import "./styling/New-Page.css";
 
 const New = () => {
   const API = import.meta.env.VITE_BASE_URL;

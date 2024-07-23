@@ -1,0 +1,21 @@
+.not-found{
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  padding: 2rem;
+  button{
+    margin-top: 2rem;
+    padding: 1rem;
+    border-radius: 1.2rem;
+    border: none;
+    background: black;
+    color: white;
+    transition: all ease 3ms;
+    &:hover{
+      box-shadow: 0 0 .3rem .2rem black;
+    }
+    &:active{
+      box-shadow: none;
+    }
+  }
+}

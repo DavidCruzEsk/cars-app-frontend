@@ -6,12 +6,12 @@ const Car = ({ car }) => {
 
   return (
     <div className="mini-car-info" onClick={() => navigate(`/${car.id}`)}>
-      <img src={imgUrl} alt="carPic" />
       <div className="mini-car-info__text">
         <p>{year}</p>
         <p>{make}</p>
         <p>{model}</p>
       </div>
+      <img src={imgUrl} alt="carPic" />
     </div>
   );
 };

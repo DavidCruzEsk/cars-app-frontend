@@ -1,10 +1,11 @@
 import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import {LogInContext} from "../Context/LogInContext";
+import { LogInContext } from "../Context/LogInContext";
 import axios from "axios";
 import { LuEye } from "react-icons/lu";
 import { LuEyeOff } from "react-icons/lu";
 import { validatePassword } from "../Helper-Functions/validatePassword.js";
+import "./Styling/change-password.css";
 
 const ChangePassword = () => {
   const BASE_URL = import.meta.env.VITE_BASE_URL_USERS;
@@ -49,15 +50,17 @@ const ChangePassword = () => {
       setTimeout(() => setError(""), 3000);
       return;
     }
-    axios.put(`${BASE_URL}/change-password`, {...userLogin, id: user.id}).then((res) => {
-      if (res.data.error) {
-        setError(res.data.error);
-        setTimeout(() => setError(""), 3000);
-        return;
-      } else {
-        navigate("/profile");
-      }
-    });
+    axios
+      .put(`${BASE_URL}/change-password`, { ...userLogin, id: user.id })
+      .then((res) => {
+        if (res.data.error) {
+          setError(res.data.error);
+          setTimeout(() => setError(""), 3000);
+          return;
+        } else {
+          navigate("/profile");
+        }
+      });
   };
 
   useEffect(() => {
@@ -68,9 +71,10 @@ const ChangePassword = () => {
 
   return (
     <form onSubmit={handleSubmit} className="change-password-form">
+      <h1>Change Password</h1>
       <div className="change-password-form__section">
         <label htmlFor="username">Username:</label>
-        <div className="form-input">
+        <div className="form-inputs">
           <input
             type="text"
             id="username"
@@ -82,7 +86,7 @@ const ChangePassword = () => {
       </div>
       <div className="change-password-form__section">
         <label htmlFor="password">Current Password:</label>
-        <div className="form-input">
+        <div className="form-inputs">
           <input
             type={passwordVisibility ? "text" : "password"}
             id="password"
@@ -99,7 +103,7 @@ const ChangePassword = () => {
       </div>
       <div className="change-password-form__section">
         <label htmlFor="newPassword">New Password:</label>
-        <div className="form-input">
+        <div className="form-inputs">
           <input
             type={passwordVisibility ? "text" : "password"}
             id="newPassword"
@@ -149,7 +153,7 @@ const ChangePassword = () => {
       ) : (
         <div className="signup-form__section">
           <label htmlFor="confirmPassword">Confirm Password:</label>
-          <div className="form-input">
+          <div className="form-inputs">
             <input
               type={passwordVisibility ? "text" : "password"}
               id="confirmPassword"
@@ -168,10 +172,13 @@ const ChangePassword = () => {
         </div>
       )}
       <div className="change-password-form__section main-btns">
-        <button type="button" onClick={() => navigate("/")}>
+        <button type="button" onClick={() => navigate(-1)}>
           Cancel
         </button>
         <button type="submit">Change Password</button>
+      </div>
+      <div className="change-password-form__section" style={{borderBottomLeftRadius: '1.3rem', borderBottomRightRadius: '1.3rem'}}>
+        {error && <p style={{fontSize: '1.2rem',color: 'white', textShadow: '0 0.3rem 0.3rem red'}}>{error}</p>}
       </div>
     </form>
   );

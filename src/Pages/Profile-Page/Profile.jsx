@@ -6,6 +6,7 @@ import { FaUserEdit } from "react-icons/fa";
 import { FaUserTimes } from "react-icons/fa";
 import { formatDate } from "../Helper-Functions/formatDate";
 import Car from "./Components/Car";
+import "./Styling/profile.css";
 
 const Profile = () => {
   const API = import.meta.env.VITE_BASE_URL;
@@ -38,8 +39,12 @@ const Profile = () => {
           <h2>Account Created: {formatDate(createdAt)}</h2>
         </div>
         <div className="profile-page__buttons">
-          <FaUserEdit onClick={() => navigate("/change-password")} />
-          <FaUserTimes onClick={() => navigate("/delete-user")} />
+          <button onClick={() => navigate("/change-password")}>
+            <FaUserEdit />
+          </button>
+          <button onClick={() => navigate("/delete-user")}>
+            <FaUserTimes />
+          </button>
         </div>
       </div>
       <div className="profile-page__favorites">
