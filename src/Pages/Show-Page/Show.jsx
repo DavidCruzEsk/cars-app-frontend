@@ -71,6 +71,10 @@ const Show = () => {
   return (
     <main className="show-container">
       <section className="show-container__car-info">
+        <video  autoPlay mute loop className="show-car-bg">
+          <source src="/videos/5926164-hd_1920_1080_30fps.mp4" type="video/mp4"/>
+        </video>
+
         <div className="car-img">
           <img src={imgUrl} alt="car" />
         </div>
