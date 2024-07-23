@@ -43,7 +43,7 @@ const Home = () => {
         <header className="home-container__content-header">
           {favorites.length ? (
             <button
-              className="favorites-toogle"
+              className="favorites-toggle"
               onClick={() => setShowFavorites((prev) => !prev)}
             >
               Show {!showFavorites ? "Favorited" : "All"} Cars{" "}
@@ -53,7 +53,7 @@ const Home = () => {
             ""
           )}
           {user ? (
-            <button className="link" onClick={() => navigate("/new")}>
+            <button className="create-user" onClick={() => navigate("/new")}>
               Add A Car
             </button>
           ) : (
