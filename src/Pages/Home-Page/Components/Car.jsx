@@ -24,57 +24,55 @@ const Car = ({ car }) => {
 
   return (
     <div onClick={() => navigate(`/${id}`)} className="car-block" key={id}>
-      <img
-        src={imgUrl}
-        alt="car-photo"
-        className="car-block__img"
-        width="200px"
-        height="125px"
-      />
+      <div className="car-block__img">
+        <img src={imgUrl} alt="car-photo" width="200px" height="125px" />
+      </div>
       <div className="car-block__details">
-        {!isFavorite ? (
-          <p>
-            <MdFavoriteBorder
-              onClick={(e) => {
-                e.stopPropagation();
-                axios
-                  .post(`${USERS}/add-favorite`, {
-                    carId: id,
-                    userId: user.id,
-                  })
-                  .then((res) => {
-                    if (res.data.carIds) {
-                      setFavorites(res.data.carIds);
-                    } else {
-                      setFavorites([]);
-                    }
-                  });
-              }}
-            />
-          </p>
-        ) : (
-          <p>
-            <MdFavorite
-              onClick={(e) => {
-                e.stopPropagation();
-                axios
-                  .delete(`${USERS}/remove-favorite/${user.id}/${id}`)
-                  .then((res) => {
-                    if (res.data.carIds) {
-                      setFavorites(res.data.carIds);
-                    } else {
-                      setFavorites([]);
-                    }
-                  });
-              }}
-            />
-          </p>
+        {user && (
+          <div className="favorited">
+            {!isFavorite ? (
+              <p>
+                <MdFavoriteBorder
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    axios
+                      .post(`${USERS}/add-favorite`, {
+                        carId: id,
+                        userId: user.id,
+                      })
+                      .then((res) => {
+                        if (res.data.carIds) {
+                          setFavorites(res.data.carIds);
+                        } else {
+                          setFavorites([]);
+                        }
+                      });
+                  }}
+                />
+              </p>
+            ) : (
+              <p>
+                <MdFavorite
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    axios
+                      .delete(`${USERS}/remove-favorite/${user.id}/${id}`)
+                      .then((res) => {
+                        if (res.data.carIds) {
+                          setFavorites(res.data.carIds);
+                        } else {
+                          setFavorites([]);
+                        }
+                      });
+                  }}
+                />
+              </p>
+            )}
+          </div>
         )}
-        <h3 className="make">{make}</h3>
-        <h2 className="model">
-          <i>{model}</i>
-        </h2>
-        <p className="year">&#40;{year}&#41;</p>
+        <h3 className="info">
+          {make} {model} {year}
+        </h3>
       </div>
     </div>
   );

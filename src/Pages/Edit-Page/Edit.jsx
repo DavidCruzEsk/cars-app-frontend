@@ -33,7 +33,7 @@ const Edit = () => {
   }, []);
 
   return (
-    <section className='new-car-container'>
+    <section className='update-car-container'>
       <h1>Edit Car</h1>
       <FormTemplate
         car={car}

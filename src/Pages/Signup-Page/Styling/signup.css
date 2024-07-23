@@ -41,11 +41,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 150px;
 }
 
 .signup-form__section {
-  margin: 10px 0;
+  margin: 5px 0;
 }
 
 .form-input {
@@ -67,6 +66,11 @@
 .validations {
   display: flex;
   flex-direction: column;
+  background: white;
+  list-style-type: none;
+  border-radius: 1.3rem;
+  padding: 0.7rem;
+  opacity: 90%;
 }
 
 .main-btns button,
@@ -75,8 +79,10 @@
 }
 
 .error {
-  color: red;
+  color: white;
+  text-shadow: 0 0.3rem 0.3rem red;
   text-align: center;
+  font-size: 1.1rem;
 }
 
 .label-birthdate {
@@ -89,13 +95,26 @@
 
 .signup-form__section__signup-header {
   font-family: "Seaweed Script", cursive;
-  font-size: 60px;
+  font-size: 40px;
   color: white;
 }
 
 .label-birthdate {
   color: white;
   font-size: larger;
+}
+
+.main-btns {
+  display: flex;
+}
+
+@media only screen and (max-width: 430px) {
+  .signup-form__left-panel, .signup-form__right-panel {
+    display: none;
+  }
+  .signup-form__middle-panel {
+    grid-column: 1/span 3;
+  }
 }
 
 /*# sourceMappingURL=signup.css.map */

@@ -38,7 +38,10 @@ const Home = () => {
     <CarsContext.Provider value={{ favorites, setFavorites }}>
       <main className="home-container">
         <video autoPlay mute loop className="home-container__home-bg-video">
-          <source src="/videos/9150545-hd_1920_1080_24fps.mp4" type="video/mp4" />
+          <source
+            src="/videos/9150545-hd_1920_1080_24fps.mp4"
+            type="video/mp4"
+          />
         </video>
         <header className="home-container__content-header">
           {favorites.length ? (
@@ -61,22 +64,15 @@ const Home = () => {
           )}
         </header>
         <div className="home-container__content-grid">
-          {showFavorites &&
+          {!cars.length ? (
+            <h3>No Cars to Show</h3>
+          ) : showFavorites ? (
             cars
               .filter((car) => favorites.includes(car.id))
-              .map((car) => (
-                <Car
-                  car={car}
-                  key={car.id}
-                />
-              ))}
-          {!showFavorites &&
-            cars.map((car) => (
-              <Car
-                car={car}
-                key={car.id}
-              />
-            ))}
+              .map((car) => <Car car={car} key={car.id} />)
+          ) : (
+            cars.map((car) => <Car car={car} key={car.id} />)
+          )}
         </div>
       </main>
     </CarsContext.Provider>

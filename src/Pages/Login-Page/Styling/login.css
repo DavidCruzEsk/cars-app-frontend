@@ -37,10 +37,6 @@
 }
 .login-form__middle-panel {
   position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
   grid-column: 2/span 1;
   grid-row: 1/span 10;
 }
@@ -62,6 +58,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 1.5rem 0;
 }
 .login-form__right-panel {
   background-image: url("/patrick-langwallner-afnQQfeMjUs-unsplash.jpg");
@@ -143,7 +140,8 @@
 }
 
 .error p {
-  color: red;
+  color: white;
+  text-shadow: 0 0.3rem 0.3rem red;
 }
 
 .log-in-header {
@@ -160,6 +158,15 @@ button:hover {
   box-shadow: 0 0 10px 4px rgb(255, 255, 255);
   outline: none;
   opacity: 1;
+}
+
+@media only screen and (max-width: 430px) {
+  .login-form__right-panel, .login-form__left-panel {
+    display: none;
+  }
+  .login-form__middle-panel {
+    grid-column: 1/span 3;
+  }
 }
 
 /*# sourceMappingURL=login.css.map */

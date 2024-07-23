@@ -73,16 +73,19 @@ const Show = () => {
 
   return (
     <main className="show-container">
-      <div className="back-home">
-        <button onClick={() => navigate(-1)}>
-          <TiArrowBackOutline />
-        </button>
-      </div>
       <section className="show-container__car-info">
-        <video  autoPlay mute loop className="show-car-bg">
-          <source src="/videos/5926164-hd_1920_1080_30fps.mp4" type="video/mp4"/>
+        <video autoPlay mute loop className="show-car-bg">
+          <source
+            src="/videos/5926164-hd_1920_1080_30fps.mp4"
+            type="video/mp4"
+          />
         </video>
 
+        <div className="back-home">
+          <button onClick={() => navigate(-1)}>
+            <TiArrowBackOutline />
+          </button>
+        </div>
         <div className="car-img">
           <img src={imgUrl} alt="car" />
         </div>
@@ -130,9 +133,12 @@ const Show = () => {
             )}
             <TiEdit onClick={() => navigate(`/edit/${id}`)} />
             <div className="delete-car">
-              <MdDelete onClick={() => setIsComponentVisible(true)} />
+              {!isComponentVisible && (
+                <MdDelete onClick={() => setIsComponentVisible(true)} />
+              )}
               {isComponentVisible && (
                 <div className="delete-car__window">
+                  <p>Delete Car?</p>
                   <button
                     onClick={() => {
                       axios.delete(`${API}/${id}`).then((res) => navigate("/"));
