@@ -64,8 +64,8 @@ const Show = () => {
         comment: newComment,
       })
       .then((res) => {
-        if (res.data.comments) {
-          setComments(res.data.comments);
+        if (res.data[0]) {
+          setComments(res.data);
           setNewComment("");
         }
       });
