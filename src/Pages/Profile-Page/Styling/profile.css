@@ -5,6 +5,7 @@
   background-image: url("/ixography-05Q_XPF_YKs-unsplash.jpg");
   background-size: cover;
   background-position: center;
+  overflow: hidden;
 }
 .profile-page__info {
   grid-column: 1/span 1;
