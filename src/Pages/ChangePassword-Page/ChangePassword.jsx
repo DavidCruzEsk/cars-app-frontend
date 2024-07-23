@@ -121,7 +121,7 @@ const ChangePassword = () => {
       {!passwordPassed && !userLogin.newPassword ? (
         ""
       ) : !passwordPassed ? (
-        <ul className="signup-form__section validations">
+        <ul className="signup-form__section validations-sect">
           <li style={{ color: validationResults.length ? "green" : "red" }}>
             At least 12 characters
           </li>
